@@ -8,7 +8,7 @@ import streamlit as st
 
 import db
 
-st.set_page_config(page_title="Platinum Eastwood Library", page_icon="📚", layout="wide")
+st.set_page_config(page_title="Platinum Eastwoods Library", page_icon="📚", layout="wide")
 
 
 def secret(name):
@@ -23,7 +23,7 @@ def require_passcode():
     expected = secret("APP_PASSCODE")
     if not expected or st.session_state.get("unlocked"):
         return
-    st.title("📚 Platinum Eastwood Library")
+    st.title("📚 Platinum Eastwoods Library")
     with st.form("unlock"):
         code = st.text_input("Library passcode", type="password")
         if st.form_submit_button("Enter", type="primary"):
@@ -69,7 +69,7 @@ def table(rows, columns):
 
 
 def page_dashboard():
-    st.title("📚 Platinum Eastwood Library")
+    st.title("📚 Platinum Eastwoods Library")
     s = db.stats()
     cols = st.columns(5)
     cols[0].metric("Total books", s["total"], border=True)
